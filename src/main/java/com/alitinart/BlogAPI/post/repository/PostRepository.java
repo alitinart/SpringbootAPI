@@ -1,5 +1,6 @@
-package com.alitinart.BlogAPI.post;
+package com.alitinart.BlogAPI.post.repository;
 
+import com.alitinart.BlogAPI.post.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,6 @@
-package com.alitinart.BlogAPI.post;
+package com.alitinart.BlogAPI.post.model;
+
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
@@ -17,7 +19,11 @@ public class Post {
             generator = "post_sequence"
     )
     private Long id;
+
+    @NotNull
     private String title;
+
+    @NotNull
     private String description;
 
     public Post() {}

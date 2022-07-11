@@ -1,5 +1,7 @@
-package com.alitinart.BlogAPI.post;
+package com.alitinart.BlogAPI.post.config;
 
+import com.alitinart.BlogAPI.post.model.Post;
+import com.alitinart.BlogAPI.post.repository.PostRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

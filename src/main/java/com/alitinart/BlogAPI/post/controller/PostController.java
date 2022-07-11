@@ -1,10 +1,13 @@
-package com.alitinart.BlogAPI.post;
+package com.alitinart.BlogAPI.post.controller;
 
-import org.hibernate.type.StringNVarcharType;
+import com.alitinart.BlogAPI.post.model.Post;
+import com.alitinart.BlogAPI.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -26,7 +29,7 @@ public class PostController {
     @PostMapping
     public String createPost(@RequestBody Post post) {
         postService.createPost(post);
-        return "Post Added";
+        return "Posted";
     }
 
     @PutMapping(path = "{postId}")
