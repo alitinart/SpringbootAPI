@@ -1,9 +1,11 @@
 package com.alitinart.BlogAPI.post;
 
+import org.hibernate.type.StringNVarcharType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/post")
@@ -22,9 +24,9 @@ public class PostController {
     }
 
     @PostMapping
-    public void createPost(@RequestBody String title, @RequestBody String description) {
-        Post post = new Post(title, description);
+    public String createPost(@RequestBody Post post) {
         postService.createPost(post);
+        return "Post Added";
     }
 
     @PutMapping(path = "{postId}")
@@ -35,5 +37,11 @@ public class PostController {
     @DeleteMapping(path = "{postId}")
     public void updatePost(@PathVariable("postId") Long id) {
         postService.deletePost(id);
+    }
+
+    // Get Post By Title
+    @GetMapping(path="title")
+    public Optional<Post> getPostByTitle(@RequestParam(required = true) String title) {
+       return postService.getPostByTitle(title);
     }
 }

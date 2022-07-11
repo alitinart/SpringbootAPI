@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -40,5 +41,9 @@ public class PostService {
 
     public void deletePost(Long id) {
         postRepository.deleteById(id);
+    }
+
+    public Optional<Post> getPostByTitle(String title) {
+        return postRepository.findPostByTitle(title);
     }
 }

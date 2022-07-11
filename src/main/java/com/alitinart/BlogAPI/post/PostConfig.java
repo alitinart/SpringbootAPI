@@ -2,13 +2,15 @@ package com.alitinart.BlogAPI.post;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+@Configuration
 public class PostConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(PostRepository postRepository) {
+    CommandLineRunner commandLineRunner(PostRepository repository) {
         return args ->{
             Post javaPost = new Post(
                     "Java is a great backend language",
@@ -21,7 +23,7 @@ public class PostConfig {
                             " it the fastest runtime out there."
             );
 
-            postRepository.saveAll(List.of(javaPost, bunPost));
+            repository.saveAll(List.of(javaPost, bunPost));
         };
     }
 }
